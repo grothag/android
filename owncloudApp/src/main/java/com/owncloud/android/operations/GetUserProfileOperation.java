@@ -105,7 +105,7 @@ public class GetUserProfileOperation extends SyncOperation {
                     Timber.d("User info recovered from UseCaseHelper:GetUserQuota -> %s", userQuotaResult.toString());
 
                     UserProfile.UserQuota userQuota = new UserProfile.UserQuota(
-                            userQuotaResult.getFree(),
+                            userQuotaResult.getAvailable(),
                             userQuotaResult.getRelative(),
                             userQuotaResult.getTotal(),
                             userQuotaResult.getUsed()

@@ -33,11 +33,14 @@ import com.owncloud.android.data.migrations.MIGRATION_27_28
 import com.owncloud.android.data.migrations.MIGRATION_28_29
 import com.owncloud.android.data.sharing.shares.db.OCShareDao
 import com.owncloud.android.data.sharing.shares.db.OCShareEntity
+import com.owncloud.android.data.user.db.UserQuotaDao
+import com.owncloud.android.data.user.db.UserQuotaEntity
 
 @Database(
     entities = [
         OCShareEntity::class,
-        OCCapabilityEntity::class
+        OCCapabilityEntity::class,
+        UserQuotaEntity::class
     ],
     version = ProviderMeta.DB_VERSION,
     exportSchema = true
@@ -45,6 +48,7 @@ import com.owncloud.android.data.sharing.shares.db.OCShareEntity
 abstract class OwncloudDatabase : RoomDatabase() {
     abstract fun shareDao(): OCShareDao
     abstract fun capabilityDao(): OCCapabilityDao
+    abstract fun userQuotaDao(): UserQuotaDao
 
     companion object {
         @Volatile

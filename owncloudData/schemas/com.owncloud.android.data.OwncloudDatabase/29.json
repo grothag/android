@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 29,
-    "identityHash": "f5bffaa0e01cfebcee457075ef18df81",
+    "identityHash": "7ebfbe00a025b51a2d2ba8aaa677a903",
     "entities": [
       {
         "tableName": "ocshares",
@@ -326,12 +326,44 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "user_quotas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`accountName` TEXT NOT NULL, `used` INTEGER NOT NULL, `available` INTEGER NOT NULL, PRIMARY KEY(`accountName`))",
+        "fields": [
+          {
+            "fieldPath": "accountName",
+            "columnName": "accountName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "used",
+            "columnName": "used",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "available",
+            "columnName": "available",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "accountName"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f5bffaa0e01cfebcee457075ef18df81')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7ebfbe00a025b51a2d2ba8aaa677a903')"
     ]
   }
 }
